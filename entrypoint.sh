@@ -8,6 +8,8 @@ exitCode=${PIPESTATUS[0]}
 
 scanId=(`grep -E '"(ID)":"((\\"|[^"])*)"' $output_file | cut -d',' -f1 | cut -d':' -f2 | tr -d '"'`)
 
+echo "bobby testing" >> $GITHUB_OUTPUT
+
 echo "cxcli=$(cat $output_file | tr -d '\r\n')" >> $GITHUB_OUTPUT
 
 if [ -n "$scanId" ] && [ -n "${PR_NUMBER}" ]; then
